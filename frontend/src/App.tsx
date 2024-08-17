@@ -1,9 +1,11 @@
 import Layout from "./layouts/Layout";
 import { Route, Routes } from 'react-router-dom';
 import './index.css';
+import Register from "./pages/Register";
 
 function App() {
   return (
+    
     <Routes>
       <Route path='/' element={
         <Layout>
@@ -14,6 +16,8 @@ function App() {
         <p>Search Page</p>
       </Layout>} />
       
+      <Route path="/register" element ={ < Register />} />
+
     </Routes>
   );
 }
