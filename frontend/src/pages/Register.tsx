@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import  * as apiClient from '../api-client';
 import { useAppContext } from "../contexts/AppContent";
 import { useNavigate } from "react-router-dom";
@@ -17,15 +17,17 @@ const Register = () => {
   
   const navigate = useNavigate();
   const { showToast } = useAppContext();
+  const queryCilent = useQueryClient();
 
   const { register, watch, handleSubmit, formState: { errors } } = useForm<RegisterFormData>();
  
   const mutation = useMutation(apiClient.register,{
-    onSuccess:()=>{
+    onSuccess: async ()=>{
       showToast({
         message: "Registration successful",
         type: "SUCCESS"
       });
+      await queryCilent.invalidateQueries("validateToken");
       navigate("/")
     },
     onError: (error: Error )=>{
@@ -41,8 +43,8 @@ const Register = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen"> 
-      <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-5 bg-white p-6 rounded shadow-md w-full max-w-md'>
+   
+      <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-5 '>
         <h2 className='text-3xl font-bold text-center'>
           Create an Account
         </h2>
@@ -108,7 +110,7 @@ const Register = () => {
           </button>
         </span>
       </form>
-    </div>
+
   );
 };
 

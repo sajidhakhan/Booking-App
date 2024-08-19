@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import  * as apiClient from '../api-client';
 import { useAppContext } from "../contexts/AppContent";
 import { useNavigate } from "react-router-dom";
@@ -10,17 +10,19 @@ export type SignInFormData = {
 }
 
 const SignIn = () => {
-    
+     
+    const queryCilent = useQueryClient(); 
     const navigate = useNavigate();
     const { showToast } = useAppContext();
     const { register, handleSubmit, formState: {errors} } = useForm<SignInFormData>();
     
     const mutation = useMutation(apiClient.signIn,{
-        onSuccess:()=>{
+        onSuccess:async ()=>{
           showToast({
             message: "SignIn successful",
             type: "SUCCESS"
           });
+          await queryCilent.invalidateQueries("validateToken");
           navigate("/")
         },
         onError: (error: Error )=>{
@@ -36,8 +38,8 @@ const SignIn = () => {
       };
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
-    <form className='flex flex-col gap-5 bg-white p-6 rounded shadow-md w-full max-w-md' onSubmit={handleSubmit(onSubmit)} >
+
+    <form className='flex  flex-col gap-5' onSubmit={handleSubmit(onSubmit)} >
         <h2 className='text-3xl text-center font-bold'>
             Sign In
         </h2>
@@ -71,7 +73,7 @@ const SignIn = () => {
           </button>
         </span>
     </form>
-    </div>
+
   )
 }
 

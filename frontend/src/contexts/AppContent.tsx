@@ -9,7 +9,7 @@ type ToastMessage = {
 }
 type AppContext = {
     showToast: (toastMessage: ToastMessage) => void;
-    isLoggedIn : Boolean;
+    isLoggedIn : boolean;
 }
 
 

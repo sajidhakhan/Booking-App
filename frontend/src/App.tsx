@@ -17,8 +17,22 @@ function App() {
         <p>Search Page</p>
       </Layout>} />
       
-      <Route path="/register" element ={ < Register />} />
-      <Route path="/sign-in" element ={ < SignIn />} />
+      <Route
+          path="/register"
+          element={
+            <Layout>
+              <Register />
+            </Layout>
+          }
+        />
+        <Route
+          path="/sign-in"
+          element={
+            <Layout>
+              <SignIn />
+            </Layout>
+          }
+        />
 
     </Routes>
   );
