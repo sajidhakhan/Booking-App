@@ -32,7 +32,7 @@ export const AppContextProvider = ({
             showToast: (toastMessage) => {
                 setToast(toastMessage);
             },
-            isLoggedIn: !isError
+            isLoggedIn: !isError,
         }}>
             {toast && 
             (

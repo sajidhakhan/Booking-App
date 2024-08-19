@@ -7,11 +7,7 @@ import authRoutes from './routes/auth';
 import cookieParser from 'cookie-parser';
 
 mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string);
-
-// Log connection success or error
-mongoose.connection.on('connected', () => {
-    console.log('Successfully connected to MongoDB database');
-});
+    
 
 const app = express();
 app.use(cookieParser());
@@ -25,6 +21,8 @@ app.use(
     origin: process.env.FRONTEND_URL, 
     credentials: true,
 }));
+
+
 
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
