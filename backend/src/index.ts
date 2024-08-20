@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request ,Response} from 'express';
 import cors from 'cors';
 import "dotenv/config";
 import mongoose from 'mongoose';
@@ -24,9 +24,13 @@ app.use(
 
 app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 
+
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 
+app.get("*", (req: Request, res: Response) => {
+    res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"));
+  });
 
 app.listen(7000, () => {
     console.log("Server running on localhost:7000!");

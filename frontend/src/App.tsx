@@ -1,12 +1,12 @@
 import Layout from "./layouts/Layout";
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './index.css';
 import Register from "./pages/Register";
 import SignIn from "./pages/SignIn";
 
 function App() {
   return (
-    
+    <Router>
     <Routes>
       <Route path='/' element={
         <Layout>
@@ -35,6 +35,7 @@ function App() {
         />
 
     </Routes>
+    </Router>
   );
 }
 
