@@ -1,40 +1,50 @@
 import Layout from "./layouts/Layout";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import './index.css';
 import Register from "./pages/Register";
 import SignIn from "./pages/SignIn";
+import AddHotel from "./pages/AddHotel";
+import { useAppContext } from "./contexts/AppContext";
 
 function App() {
+  const { isLoggedIn, loading } = useAppContext();
+
+  if (loading) {
+    return <div>Loading...</div>; 
+  }
   return (
     <Router>
-    <Routes>
-      <Route path='/' element={
-        <Layout>
-        <p>Home Page</p>
-      </Layout>} />
-      <Route path='/search' element={
-        <Layout>
-        <p>Search Page</p>
-      </Layout>} />
-      
-      <Route
-          path="/register"
-          element={
+      <Routes>
+        <Route path='/' element={
+          <Layout>
+            <p>Home Page</p>
+          </Layout>
+        } />
+        <Route path='/search' element={
+          <Layout>
+            <p>Search Page</p>
+          </Layout>
+        } />
+        <Route path="/register" element={
+          <Layout>
+            <Register />
+          </Layout>
+        } />
+        <Route path="/sign-in" element={
+          <Layout>
+            <SignIn />
+          </Layout>
+        } />
+        {isLoggedIn && (
+          <Route path="/add-hotel" element={
             <Layout>
-              <Register />
+              <AddHotel />
             </Layout>
-          }
-        />
-        <Route
-          path="/sign-in"
-          element={
-            <Layout>
-              <SignIn />
-            </Layout>
-          }
-        />
+          } />
+        )}
 
-    </Routes>
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
     </Router>
   );
 }
