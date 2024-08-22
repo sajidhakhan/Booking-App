@@ -21,7 +21,7 @@ test.beforeEach(async({ page })=>{
 });
 
 test("should allow user to add a hotel", async({ page }) =>{
-    await page.goto(`${UI_URL}add-hotel`)
+    await page.goto(`${UI_URL}add-hotel`);
 
     await page.locator("[name=name]").fill("Test Hotel");
     await page.locator("[name=city]").fill("Test City");
@@ -47,4 +47,22 @@ test("should allow user to add a hotel", async({ page }) =>{
     
     await page.getByRole("button", { name: "Save" }).click();
     await expect(page.getByText("Hotel Saved!")).toBeVisible();
+});
+
+
+test("should display hotels", async ({ page }) =>{
+    await page.goto(`${UI_URL}my-hotels`);
+
+    await expect(page.getByRole('heading', { name: 'Test Hotel' }).first()).toBeVisible();
+    await expect(page.getByText("This description for the test hotel")).toBeVisible();
+
+    await expect(page.getByText("Test City, Test Country")).toBeVisible();
+    await expect(page.getByText("Budget")).toBeVisible();
+    await expect(page.getByText("₹100 per night")).toBeVisible();
+  
+    await page.waitForSelector('text="2 adults, 2 children"', { state: 'visible' });
+    await expect(page.getByText("3 Star Rating")).toBeVisible();
+
+    await expect(page.getByRole("link",{name: "View Details"})).toBeVisible();
+    await expect(page.getByRole("link",{name: "Add Hotel"})).toBeVisible();
 });
