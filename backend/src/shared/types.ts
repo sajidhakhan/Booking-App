@@ -6,11 +6,11 @@ export type HotelType = {
     country: string;
     description: string;
     type: string;
-    adultCount: string;
-    childCount: string;
-    facilities: string;
-    pricePerNight: string;
+    adultCount: number;
+    childCount: number;
+    facilities: string[];
+    pricePerNight: number;
     starRating: number;
     imageUrls: string[];
     lastUpdated: Date;
-}
+  };

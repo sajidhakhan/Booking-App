@@ -13,17 +13,17 @@ export type HotelFormData = {
     country: string;
     description: string;
     type: string;
-    pricePerNight: string;
-    starRating: string;
+    pricePerNight: number;
+    starRating: number;
     facilities: string[];
-    imageFiles: FileList; 
+    imageFiles: FileList;
     imageUrls: string[];
     adultCount: number;
     childCount: number;
 }
 
 type Props = {
-    hotel?: HotelType;
+    hotel: HotelType;
     onSave: (hotelFormData: FormData) => void;
     isLoading: boolean;
 }
@@ -32,9 +32,9 @@ const ManageHotelForm = ({ onSave, isLoading, hotel }: Props) => {
     const formMethods = useForm<HotelFormData>();
     const { handleSubmit, reset } = formMethods;
 
-    useEffect(() => {
-        reset(hotel);
-      }, [hotel, reset]);
+   useEffect(()=>{
+    reset(hotel);
+   },[hotel, reset]);
 
     const onSubmit = ((formDataJson: HotelFormData) => {
         const formData = new FormData();
