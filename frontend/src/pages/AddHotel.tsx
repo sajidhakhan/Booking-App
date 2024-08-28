@@ -2,6 +2,8 @@ import { useMutation } from "react-query";
 import ManageHotelForm from "../forms/ManageHotelForm/ManageHotelForm";
 import { useAppContext } from "../contexts/AppContext";
 import * as apiCilent from '../api-client';
+
+
 const AddHotel = () => {
 
   const  { showToast } = useAppContext();
@@ -17,8 +19,6 @@ const AddHotel = () => {
   const handleSave = (hotelFormData: FormData) => {
     mutate(hotelFormData);
   }
-
-
 
   return (
     <ManageHotelForm  onSave={handleSave}  isLoading={isLoading} />
