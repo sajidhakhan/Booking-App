@@ -7,6 +7,7 @@ import * as apiCilent from '../api-client';
 const AddHotel = () => {
 
   const  { showToast } = useAppContext();
+  
   const { mutate, isLoading} = useMutation(apiCilent.addMyHotel,{
     onSuccess: () => {
       showToast({ message: "Hotel Saved!", type: "SUCCESS"});
