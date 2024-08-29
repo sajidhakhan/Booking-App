@@ -72,8 +72,16 @@ test("should edit hotel", async ({ page }) =>{
     await page.getByRole("link", { name: "View Details" }).click();
 
     await page.waitForSelector('[name="name"]',{ state: "attached" });
-    await expect(page.locator('[name="name"]')).toHaveValue('Dublin');
+    await expect(page.locator('[name="name"]')).toHaveValue('Dublin Coast');
     await page.locator('[name="name"]').fill("Dublin Coast");
     await page.getByRole("button",{ name: "Save"}).click();
-    await expect(page.getByText("Hotel Saved!")).toBeVisible({ timeout: 10000 }); // 10 seconds
+    await expect(page.getByText("Hotel Saved!")).toBeVisible();
+
+    await page.reload();
+
+    await expect(page.locator('[name="name"]')).toHaveValue("Dublin Coast");
+
+    await page.locator('[name="name"]').fill("Dublin");
+
+    await page.getByRole("button",{ name: "Save" }).click();
 })
