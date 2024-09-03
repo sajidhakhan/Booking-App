@@ -16,10 +16,10 @@ export type HotelType = {
   };
 
   export type HotelSearchResponse = {
-    data: HotelType[],
+    data: HotelType[];
     pagination: {
-        total: number
-        page: number,
-        pages: number,
+        total: number;
+        page: number;
+        pages: number;
     }
   }
