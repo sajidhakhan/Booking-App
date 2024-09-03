@@ -107,12 +107,12 @@ export const updateMyHotelById = async (hotelFormData: FormData)=>{
 }
 
 export type SearchParams = {
-    destination: string;
-    checkIn: string;
-    checkOut: string;
-    adultCount: string;
-    childCount: string;
-    page: string;
+    destination?: string;
+    checkIn?: string;
+    checkOut?: string;
+    adultCount?: string;
+    childCount?: string;
+    page?: string;
 }
 
 export const searchHotels = async (searchParams: SearchParams): Promise<HotelSearchResponse> => {
@@ -125,7 +125,7 @@ export const searchHotels = async (searchParams: SearchParams): Promise<HotelSea
     queryParams.append("page", searchParams.page || "");
 
     const response = await fetch(`${API_BASE_URL}/api/hotels/search?${queryParams}`);
-
+ 
     if(!response.ok){
         throw new Error("Error fetching hotels");
     }
