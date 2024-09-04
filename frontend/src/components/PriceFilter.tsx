@@ -17,7 +17,7 @@ type Props = {
           }
         >
           <option value="">Select Max Price</option>
-          {[ 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 90000].map((price) => (
+          {[ 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000].map((price) => (
             <option value={price}>{price}</option>
           ))}
         </select>
