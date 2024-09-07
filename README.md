@@ -1,6 +1,6 @@
-# Setting Up the MERN Booking App
+# Setting Up the StayEasy Booking App
 
-This guide will walk you through the process of setting up the MERN Booking App on your local machine.
+This guide will walk you through the process of setting up the StayEasy Booking App on your local machine.
 
 ## Prerequisites
 
