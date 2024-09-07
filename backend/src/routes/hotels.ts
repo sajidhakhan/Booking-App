@@ -6,6 +6,7 @@ import Stripe from "stripe";
 import verifyToken from "../middleware/auth";
 
 
+
 const stripe = new Stripe(process.env.STRIPE_API_KEY as string);
 
 const router = express.Router();
@@ -109,7 +110,6 @@ router.post(
     };
 
     res.send(response);
-    console.log(response);
   }
 );
 
