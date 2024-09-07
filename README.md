@@ -1,14 +1,28 @@
-# Setting Up the StayEasy Booking App
+# StayEasy Booking App
 
-This guide will walk you through the process of setting up the StayEasy Booking App on your local machine.
+STAYEASY helps you discover the best hotels tailored to your preferences and budget.
+
+- Frontend: React, TypeScript, React Query, React Router
+- Backend: Node.js, Express, MongoDB
+- Styling: Tailwind CSS
+
+# 👾 Features
+
+- Search and Filter: Easily search for hotels based on destination, check-in and check-out dates, number of adults and children, and specific amenities.
+
+- User-Friendly Interface: Intuitive design that makes navigating through hotel options seamless and enjoyable. 
+
+- List your hotels
+
+# 🚦 Running the Project
+
+To run the project in your local environment, follow these steps:
+
+- Start by cloning the repository to your local machine.
 
 ## Prerequisites
 
 Before you begin, ensure you have Node.js installed on your system.
-
-## Cloning the Repository
-
-Start by cloning the repository to your local machine:
 
 
 ## Backend Configuration
@@ -113,4 +127,7 @@ Start by cloning the repository to your local machine:
     - Install dependencies: `npm install`.
     - Start the frontend and backend server using the steps above
     - [Using the Playwright extension to run the tests](https://playwright.dev/docs/getting-started-vscode#running-tests)
+
+
+
 
