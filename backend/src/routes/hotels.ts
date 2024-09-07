@@ -5,6 +5,7 @@ import { param, validationResult } from "express-validator";
 import Stripe from "stripe";
 import verifyToken from "../middleware/auth";
 
+
 const stripe = new Stripe(process.env.STRIPE_API_KEY as string);
 
 const router = express.Router();
@@ -108,6 +109,7 @@ router.post(
     };
 
     res.send(response);
+    console.log(response);
   }
 );
 
@@ -133,9 +135,11 @@ router.post("/:hotelId/bookings", verifyToken, async (req: Request, res: Respons
       return res.status(400).json({ message: `payment intent not succeeded. Status: ${paymentIntent.status}` });
     }
 
+
     const newBooking: BookingType = {
       ...req.body,
       userId: req.userId,
+      totalCost: paymentIntent.amount / 100
     };
 
     const hotel = await Hotel.findOneAndUpdate(
