@@ -67,7 +67,7 @@ type GuestInfoFormData = {
     };
   
     return (
-      <div className="flex flex-col p-4 bg-blue-200 gap-4">
+      <div className="flex flex-col p-4 bg-[#F7F7F8] gap-4">
         <h3 className="text-md font-bold">₹{pricePerNight}</h3>
         <form
           onSubmit={
@@ -142,11 +142,11 @@ type GuestInfoFormData = {
               )}
             </div>
             {isLoggedIn ? (
-              <button className="bg-blue-600 text-white h-full p-2 font-bold hover:bg-blue-500 text-xl">
+              <button className="bg-[#4e31aa] text-white h-full p-2 font-bold hover:bg-[#7050d7] text-xl">
                 Book Now
               </button>
             ) : (
-              <button className="bg-blue-600 text-white h-full p-2 font-bold hover:bg-blue-500 text-xl">
+              <button className="bg-[#4e31aa] text-white h-full p-2 font-bold hover:bg-[#7050d7] text-xl">
                 Sign in to Book
               </button>
             )}

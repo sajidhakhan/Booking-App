@@ -102,7 +102,7 @@ const SearchBar = () => {
                 />
             </div>
             <div className="flex gap-1">
-                <button type="submit" className="w-2/3 rounded bg-blue-700 text-white h-full p-2 font-bold text-xl hover:bg-blue-600">
+                <button type="submit" className="w-2/3 rounded bg-[#4E31AA] text-white h-full p-2 font-bold text-xl hover:bg-[#7050d7]">
                     Search
                 </button>
                 <button type="button" onClick={handleClear} className="w-1/3 rounded bg-red-700 text-white h-full p-2 font-bold text-xl hover:bg-red-600">

@@ -103,7 +103,7 @@ const Register = () => {
         <span>
           <button 
             type="submit" 
-            className="bg-blue-800 text-white p-2 font-bold rounded hover:bg-blue-700 text-xl transition duration-200">
+            className="bg-[#4e31aa] text-white p-2 font-bold rounded hover:bg-[#7050d7] text-xl transition duration-200">
             Create Account
           </button>
         </span>
